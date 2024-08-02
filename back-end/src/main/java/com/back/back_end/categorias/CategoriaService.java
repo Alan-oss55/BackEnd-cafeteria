@@ -34,6 +34,7 @@ public class CategoriaService {
 
         updateCategoria.setNombre(categoriaDitail.getNombre());
         updateCategoria.setDescripcion(categoriaDitail.getDescripcion());
+        updateCategoria.setImageUrl(categoriaDitail.getImageUrl());
 
         return repository.save(updateCategoria);
     }

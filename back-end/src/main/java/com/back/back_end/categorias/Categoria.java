@@ -25,4 +25,6 @@ public class Categoria {
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
+    @Column(name = "image_url", length = 225)
+    private String imageUrl;
 }

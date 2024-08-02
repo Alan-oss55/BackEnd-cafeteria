@@ -1,6 +1,7 @@
-package com.back.back_end.categorias;
+package com.back.back_end.DetalleVenta.com;
 
 import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,43 +14,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/v1/detalles")
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/v1/categoria")
-public class CategoriaController {
-    @Autowired
-    private CategoriaService service;
+public class DetalleVentaController {
+
+    @Autowired DetalleVentaService service;
 
     //getAll
     @GetMapping
-    public List<Categoria> getAll(){
+    public List<DetalleVenta> getAll(){
         return service.getAll();
     }
 
-    //get By Id
+    //get by id
     @GetMapping("/{id}")
-    public Categoria getById(@PathVariable Long id){
-        return service.getByIdCategoria(id);
+    public DetalleVenta getById(@PathVariable Long id){
+        return service.getByIdVenta(id);
     }
 
-
-    //Create
+    //create
     @PostMapping
-    public Categoria createCategoria(@RequestBody Categoria categoria){
-        return service.addCategoria(categoria);
+    public DetalleVenta addDetalle(@RequestBody DetalleVenta venta){
+        return service.addDetalleVenta(venta);
     }
 
     //update
     @PutMapping("/{id}")
-    public Categoria updateCategoriaCategoria(@PathVariable Long id, @RequestBody Categoria categoriaDitail){
-        return service.updateCategoria(id, categoriaDitail);
+    public DetalleVenta updateDetalle(@PathVariable Long id, @RequestBody DetalleVenta detalleDitail){
+        return service.updateDetalles(id, detalleDitail);
     }
 
+    //delete
     @DeleteMapping("/{id}")
-    public HashMap<String, Boolean> delete(@PathVariable Long id) {
-        service.deleteCategoria(id);
-        HashMap<String, Boolean> response = new HashMap<>();
-        response.put("deleted", true);
-        return response;
+    public Map<String, Boolean> deleteDetail(@PathVariable Long id){
+        return service.deleteRegistro(id);
     }
-   
 }
