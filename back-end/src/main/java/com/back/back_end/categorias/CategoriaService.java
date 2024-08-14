@@ -8,6 +8,7 @@ import com.back.back_end.ResourceNotFoundException;
 
 @Service
 public class CategoriaService {
+    
     @Autowired
     private CategoriaRepository repository;
 

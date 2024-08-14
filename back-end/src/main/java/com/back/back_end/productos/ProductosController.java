@@ -15,13 +15,13 @@ import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/productos")
+@RequestMapping("/api/v1/productos")
 public class ProductosController {
     @Autowired
     private ProductoService service;
 
     //getAll
-    @GetMapping("/listar")
+    @GetMapping
     public List<Productos> getAll(){
         return service.getAll();
     }
@@ -33,7 +33,7 @@ public class ProductosController {
     }
 
     //create
-    @PostMapping("/crear")
+    @PostMapping
     public Productos addProductos(@RequestBody Productos productos){
         return service.addProductos(productos);
     }
